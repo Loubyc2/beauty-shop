@@ -417,3 +417,107 @@ footer {
         margin: 0 10px;
     }
 }
+
+@media screen and (max-width:414px) {
+    .home__text {
+        margin-left: 0;
+    }
+    .home__new-arrival-product {
+        flex-direction: column !important;
+    }
+    .home__new-arrival-left {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .home__new-arrival-product .carousel.slide {
+        width: 100% !important;
+    }
+    .home__new-arrival-product .carousel-item {
+        padding: 0 !important;
+        width: 100%;
+    }
+    .home__new-arrival-product .carousel-item .card {
+        margin: 2px !important;
+    }
+    /* Home Categories */
+    .home__categories {
+        display: flex;
+        flex-direction: column;
+    }
+    .home__category-gender {
+        height: 20rem;
+        background-size: cover;
+        background-position: top;
+    }
+    .home__category-gender-text>* {
+        left: 7%;
+    }
+    .home__category-right {
+        display: flex;
+    }
+    .home__category-electro-text>* {
+        left: 7%;
+    }
+    .home__category-beauty-text>* {
+        left: 47%;
+    }
+    /* Home banner */
+    .home__banner {
+        background-position: right;
+        background-size: cover;
+        height: 13rem;
+        width: 100%;
+    }
+    .home__banner-text {
+        top: 0;
+    }
+    .home__banner-text h2 {
+        color: #2a563f;
+        font-weight: bold;
+        margin: 0;
+    }
+    .home__banner-text span {
+        font-size: 55px;
+        margin-right: .6rem;
+        font-weight: bold;
+    }
+    .home__banner-text .btn {
+        margin-top: 10px !important;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-left: 0!important;
+        color: #fff;
+        background-color: transparent;
+        border: 2px solid #e79e4f;
+    }
+    /* Footer */
+    footer {
+        padding: 10px 0;
+    }
+    .main-footer {
+        padding: 6px !important;
+    }
+    .main-footer form {
+        display: flex !important;
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .main-footer form div:first-of-type {
+        margin: auto;
+    }
+    .main-footer form div>input {
+        margin-bottom: 10px;
+    }
+    .main-footer form div {
+        width: 100%;
+    }
+    .footer-icons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .footer-icons a {
+        color: #5f5f5f;
+        margin: 0 10px;
+    }
+}
