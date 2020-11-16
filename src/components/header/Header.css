@@ -204,3 +204,9 @@
         font-weight: 300;
     }
 }
+
+@media screen and (max-width:414px) {
+    .header-right {
+        top: 50px;
+    }
+}
