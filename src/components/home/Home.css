@@ -439,6 +439,9 @@ footer {
     .home__new-arrival-product .carousel-item .card {
         margin: 2px !important;
     }
+    .carousel-item .card {
+        padding: 4px 5.3px !important;
+    }
     /* Home Categories */
     .home__categories {
         display: flex;
