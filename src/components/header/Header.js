@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
 import { FiShoppingCart } from 'react-icons/fi';
-import { WiDirectionRight } from 'react-icons/wi'
+import { WiDirectionRight } from 'react-icons/wi';
 
 // import header_banner from '../../img/banner/header-banner.jpg'
 
@@ -38,13 +38,13 @@ function Header() {
                                             <NavLink to='/' className="nav-link activated" activeStyle={{ color: '#ec524b' }}  >Inicio</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink to='/' className="nav-link" >Tienda</NavLink>
+                                            <NavLink to='/shop' className="nav-link" >Tienda</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink to='/' className="nav-link" >Categorías</NavLink>
+                                            <NavLink to='/category' className="nav-link" >Categorías</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink to='/' className="nav-link">Contacto</NavLink>
+                                            <NavLink to='/contact' className="nav-link">Contacto</NavLink>
                                         </li>
                                     </ul>
                                 </div>

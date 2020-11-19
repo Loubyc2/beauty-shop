@@ -1,0 +1,60 @@
+.shop-content {
+    background-color: #e5e5e5;
+    height: max-content;
+}
+
+.shop-content .navbar.navbar-expand-lg {
+    background-color: #f3c9dd;
+}
+
+.all {
+    color: #839b97 !important;
+}
+
+.form-check-label {
+    color: #222;
+}
+
+.filter .form-label {
+    font-size: 16px;
+}
+
+.sidebar .btn.btn-warning {
+    width: 20%;
+    text-transform: uppercase;
+}
+
+.d-flex.justify-content-center.my-4 {
+    position: relative;
+}
+
+.card.filter-price p {
+    margin-bottom: 0;
+    position: absolute;
+    top: 18px;
+    left: 136px;
+}
+
+.card.filter-price input:before {
+    content: '$0';
+    position: absolute;
+    top: 18px;
+    left: 0;
+}
+
+
+/* Main Shop */
+
+.shop-main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-main img {
+    max-width: 100%;
+    height: auto;
+}
+
+.shop-main .card-item {
+    background-color: #fff;
+}
