@@ -5,7 +5,7 @@ import './Shop.css'
 import Product from './products';
 
 
-import image from '../../img/shop-product/product-1.jpg'
+
 const Shop = () => {
     const [value, setValue] = useState(10)
 

@@ -1,7 +1,7 @@
 import img1 from '../../img/shop-product/product-1.jpg';
 import img2 from '../../img/shop-product/product-2.jpg';
 import img3 from '../../img/shop-product/product-3.jpg';
-import img4 from '../../img/shop-product/product-1.jpg';
+
 const Product = [{
 
         "id": 1,
