@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { FiShoppingCart } from 'react-icons/fi';
-import { BiSearch } from 'react-icons/bi';
+import { NavLink } from 'react-router-dom';
+
 import './Shop.css'
 import Product from './products';
 
