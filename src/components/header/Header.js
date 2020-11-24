@@ -7,9 +7,11 @@ import { WiDirectionRight } from 'react-icons/wi';
 // import header_banner from '../../img/banner/header-banner.jpg'
 
 import './Header.css'
+import { useStateValue } from '../../StateProvider';
 
 function Header() {
     const [scroll, setScroll] = useState(true)
+    const [{ basket }] = useStateValue()
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -50,9 +52,12 @@ function Header() {
                                 </div>
                             </div>
                             <div className='header-bar-separator'>|</div>
-                            <div className="header-account d-flex">
+                            <div className="header-account d-flex align-items-center">
                                 <BiSearch className='mx-2 header-search' />
-                                <FiShoppingCart className='header-cart' />
+                                <div className='d-flex align-items-center' style={{ position: 'relative' }}>
+                                    <FiShoppingCart className='header-cart' />
+                                    <span className='header-cart-items'>{basket.length}</span>
+                                </div>
                             </div>
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>

@@ -46,8 +46,8 @@
 /* Main Shop */
 
 .shop-main {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 3fr 9fr;
 }
 
 .shop-main img {
@@ -58,3 +58,50 @@
 .shop-main .card-item {
     background-color: #fff;
 }
+
+.shop-product {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.shop-rating {
+    color: #000000;
+}
+
+.red {
+    background-color: red;
+    width: 10px;
+}
+
+@media screen and (max-width:1050px) {
+    .shop-main {
+        display: grid;
+        grid-template-columns: 4fr 8fr;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .sidebar .btn.btn-warning {
+        width: 30%;
+    }
+    .shop-product {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card-body {
+        padding: 5px;
+    }
+    .card-text p {
+        font-size: 14px;
+    }
+    .card-text div {
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center;
+    }
+    .card-text .shop-rating {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width:500px) {}

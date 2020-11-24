@@ -70,10 +70,30 @@
     background-color: #8f384d;
 }
 
+.header-search:hover,
+.header-cart:hover {
+    color: #c7605a;
+}
+
+.header-cart-items {
+    position: absolute;
+    top: -18px;
+    left: 14px;
+    width: 28px;
+    padding-bottom: 2px;
+    border-radius: 100%;
+    background-color: #c05555;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .scroll {
     position: fixed;
     top: 0;
     z-index: 100;
+    padding: 0 20px;
     width: 100%;
     display: flex !important;
     align-items: center !important;

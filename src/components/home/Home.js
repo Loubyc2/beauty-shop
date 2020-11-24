@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import * as FaIcons from 'react-icons/fa';
 
@@ -13,8 +13,36 @@ import product_img_4 from '../../img/new-products/new-product-4.jpg';
 import product_img_5 from '../../img/new-products/new-product-5.jpg';
 import product_img_6 from '../../img/new-products/new-product-6.jpg';
 import product_img_7 from '../../img/new-products/new-product-7.jpg';
+import { useStateValue } from '../../StateProvider';
 
 function Home() {
+
+    const [state, dispatch] = useStateValue()
+    const [product1] = useState([
+        { img: product_img_1, title: 'Lorem Beauty', price: '45 030', id: '1' },
+        { img: product_img_2, title: 'Lorem ipsum', price: '10 990', id: '2' },
+        { img: product_img_3, title: ' Lorem Perfum', price: '12 100', id: '3' },
+
+    ])
+    const [product2] = useState([
+
+        { img: product_img_4, title: 'Smart Watch', price: '17 600', id: '4' },
+        { img: product_img_5, title: 'Iphone ipsum', price: '255 990', id: '5' },
+        { img: product_img_6, title: 'Ipad ipsum ', price: '22 400', id: '6' },
+    ])
+    const addToBasket = (product) => {
+        dispatch({
+            type: "ADD_TO_BASKET",
+            ...state,
+            items: {
+                id: product.id,
+                img: product.img,
+                price: product.price
+            }
+        })
+
+    }
+
     return (
         <div className='home'>
             <section className='home__new-arrival'>
@@ -28,39 +56,28 @@ function Home() {
                     </div>
                     <div className="carousel slide d-flex text-center w-75 home__new-arrival-right" id='home-carousel' data-ride='carousel'>
                         <div className="carousel-inner">
-                            <div className="carousel-item  active">
-                                <div className='card p-1 mx-1 d-inline-flex flex-column'>
-                                    <img className='d-inline' src={product_img_1} alt="product img" />
-                                    <p className=''> Lorem Beauty </p>
-                                    <span>$ 45 030</span>
-                                </div>
-                                <div className='card p-1 mx-1 d-inline-flex flex-column'>
-                                    <img className='d-inline' src={product_img_2} alt="product img" />
-                                    <p className=''> Lorem ipsum </p>
-                                    <span>$ 10 990</span>
-                                </div>
-                                <div className='card p-1 mx-1 d-inline-flex flex-column'>
-                                    <img className='d-inline' src={product_img_3} alt="product img" />
-                                    <p className=''> Lorem Perfum </p>
-                                    <span>$ 12 100</span>
-                                </div>
+                            <div className="carousel-item active">
+                                {product1.map(product => (
+                                    <div className='card p-1 mx-1 d-inline-flex flex-column' key={product.id}>
+                                        <img className='d-inline' src={product.img} alt="product img" />
+                                        <p className=''> {product.title} </p>
+                                        <span>$ {product.price}</span>
+                                        <Link to='/'><button className='btn btn-secondary my-1' type="button" onClick={() => addToBasket(product)}>Añadir al carro</button></Link>
+                                    </div>
+                                ))}
+
+
                             </div>
                             <div className="carousel-item ">
-                                <div className='card p-1 mx-1 d-inline-flex flex-column'>
-                                    <img className='d-inline' src={product_img_4} alt="product img" />
-                                    <p className=''> Smart Watch </p>
-                                    <span>$ 5 450</span>
-                                </div>
-                                <div className='card p-1 mx-1 d-inline-flex flex-column'>
-                                    <img className='d-inline' src={product_img_5} alt="product img" />
-                                    <p className=''> Iphone ipsum </p>
-                                    <span>$ 16 090</span>
-                                </div>
-                                <div className='card p-1 mx-1 d-inline-flex flex-column'>
-                                    <img className='d-inline' src={product_img_6} alt="product img" />
-                                    <p className=''> Ipad ipsum </p>
-                                    <span>$ 22 300</span>
-                                </div>
+                                {product2.map((product, index) => (
+                                    <div className='card p-1 mx-1 d-inline-flex flex-column' key={product.id}>
+                                        <img className='d-inline' src={product.img} alt="product img" />
+                                        <p className=''> {product.title} </p>
+                                        <span>$ {product.price}</span>
+                                        <Link to='/'><button className='btn btn-secondary my-1' type="button" onClick={() => addToBasket(product)}>Añadir al carro</button></Link>
+                                    </div>
+                                ))}
+
                             </div>
 
                         </div>

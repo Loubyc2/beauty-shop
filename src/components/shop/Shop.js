@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa'
 
 import './Shop.css'
 import Product from './products';
@@ -7,14 +8,26 @@ import Product from './products';
 
 
 const Shop = () => {
-    const [value, setValue] = useState(10)
+    const [value, setValue] = useState(10);
+    const [checked, setChecked] = useState(true);
+    const [size, setSize] = useState(window.innerWidth)
 
     const handleChange = (e) => {
         setValue(e.target.value)
     }
 
+    const handleCheck = () => {
+        setChecked(!checked)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setSize(window.innerWidth)
+        })
+    })
     return (
         <div className='shop'>
+            {size}
             <div className='shop-content'>
                 {/* header */}
                 <nav className="navbar mb-3 navbar-expand-lg navbar-light px-5">
@@ -47,12 +60,12 @@ const Shop = () => {
                     </button>
                 </nav>
                 {/* main */}
-                <div className="shop-main container-fluid row">
-                    <div className='sidebar p-3 col-3  '>
+                <div className="shop-main container-fluid">
+                    <div className='sidebar p-2'>
                         <div className="card my-3 p-3 categories bg-transparent">
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input rounded-0" type="checkbox" id="all" />
-                                <label className="form-check-label all" htmlFor="all">Todo</label>
+                                <input className="form-check-input rounded-0" type="checkbox" id="all" onChange={handleCheck} checked={checked} />
+                                <label className="form-check-label all" htmlFor="all" >Todo</label>
                             </div>
                             <div className="form-check form-check-inline">
                                 <input className="form-check-input rounded-0" type="checkbox" id="women" />
@@ -96,25 +109,52 @@ const Shop = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='shop-main  col-9 p-4'>
+                    {checked ? <div className='shop-product p-4'>
                         {Product.map(item => (
-                            <div className='card border-0 bg-transparent col-3 my-2 p-1'>
-                                <div className='card-item p-1'>
-                                    <img className='' src={item.img} alt='img' />
-                                    <p className='mb-0 text-center'>{item.title}</p>
-                                    <div className='d-flex justify-content-around'>
-                                        <span>${item.price}</span>
-                                        <span>{item.rating}</span>
+                            <div className='card bg-transparent'>
+                                <img className='card-img-top' src={item.img} alt='img' />
+                                <div className="card-body ">
+                                    <div className="card-text">
+                                        <p className='mb-0 text-center'>{item.title}</p>
+                                        <div className='d-flex justify-content-around mb-0'>
+                                            <span>${item.price}</span>
+                                            <div className='d-flex shop-rating'>
+                                                <span className='d-flex'> {Array(item.rating_pos).fill().map((_) => <p>&#9733;</p>)}</span>
+                                                <span className='d-flex'> {Array(item.rating_neg).fill().map((_) => <p>&#9734;</p>)}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         ))}
 
-                    </div>
+                    </div> : null}
                 </div>
 
             </div>
+            {/* Footer */}
 
+            <footer className='' style={{ backgroundColor: '#bbbfca' }}>
+                <div className="main-footer pt-4 px-5">
+                    <h4>nuestro newsletter</h4>
+                    <p>Suscribirse para recibir las ultimas ofertas</p>
+                    <form className="row w-50 mx-auto mt-2 mb-4">
+                        <div className="col-10">
+                            <input type="text" className="form-control  text-capitalize" id="inputTex" placeholder="ingresa tu email" />
+                        </div>
+                        <div className="col-2">
+                            <button type="submit" className="btn btn-primary  text-uppercase">suscribirse</button>
+                        </div>
+                    </form>
+                    <div className="footer-icons my-2">
+                        <Link to='/'><FaIcons.FaFacebook size={26} className='facebook-icon' /></Link>
+                        <Link to='/'><FaIcons.FaTwitter size={26} className='twitter-icon' /></Link>
+                        <Link to='/'> <FaIcons.FaInstagram size={26} className='instagram-icon' /></Link>
+                    </div>
+                    <p className=''>&copy; 2020 Lb Design</p>
+                </div>
+
+            </footer>
         </div>
     )
 }
