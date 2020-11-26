@@ -10,7 +10,7 @@ import img8 from '../../img/shop-product/product-8.png';
 const Product = [{
 
         "id": 1,
-        "title": "id labore ex et ",
+        "title": "Camisa de Vestir ",
         "img": img1,
         "price": '21.000',
         "rating_pos": 5,
@@ -19,7 +19,7 @@ const Product = [{
     {
 
         "id": 2,
-        "title": "id labore ex ",
+        "title": "Gorro para el frío ",
         "img": img3,
         "price": '6.000',
         "rating_pos": 3,
@@ -28,7 +28,7 @@ const Product = [{
     {
 
         "id": 3,
-        "title": "iduam laborum",
+        "title": "Traje de Vestir",
         "img": img2,
         "price": '10.200',
         "rating_pos": 2,
@@ -36,8 +36,8 @@ const Product = [{
     },
     {
 
-        "id": 1,
-        "title": "id labore ex et ",
+        "id": 4,
+        "title": "Pantalón Latino ",
         "img": img4,
         "price": '20.000',
         "rating_pos": 3,
@@ -45,8 +45,8 @@ const Product = [{
     },
     {
 
-        "id": 1,
-        "title": "id labore ex et ",
+        "id": 5,
+        "title": "Cámara Profesional",
         "img": img5,
         "price": '20.300',
         "rating_pos": 3,
@@ -54,8 +54,8 @@ const Product = [{
     },
     {
 
-        "id": 1,
-        "title": "id labore ex et ",
+        "id": 6,
+        "title": "Perfume de Marca",
         "img": img6,
         "price": ' 18.990',
         "rating_pos": 4,
@@ -63,8 +63,8 @@ const Product = [{
     },
     {
 
-        "id": 1,
-        "title": "id labore ex et ",
+        "id": 7,
+        "title": "Zaptilla Deportiva ",
         "img": img8,
         "price": '20.090',
         "rating_pos": 4,
@@ -72,8 +72,8 @@ const Product = [{
     },
     {
 
-        "id": 1,
-        "title": "id labore ex et ",
+        "id": 8,
+        "title": "Lentes de Sol",
         "img": img7,
         "price": '22.000',
         "rating_pos": 2,

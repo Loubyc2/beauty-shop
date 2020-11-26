@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { BiSearch } from 'react-icons/bi';
+import { FiShoppingCart } from 'react-icons/fi';
 import * as FaIcons from 'react-icons/fa'
 
 import './Shop.css'
 import Product from './products';
-
-
+import { useStateValue } from '../../StateProvider';
 
 const Shop = () => {
+    const [{ basket }] = useStateValue()
+    const [state, dispatch] = useStateValue()
     const [value, setValue] = useState(10);
     const [checked, setChecked] = useState(true);
     const [size, setSize] = useState(window.innerWidth)
@@ -20,6 +23,17 @@ const Shop = () => {
         setChecked(!checked)
     }
 
+    const addToBasket = (item) => {
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            items: {
+                ...state,
+                items: {
+                    id: item.id
+                }
+            }
+        })
+    }
     useEffect(() => {
         window.addEventListener('resize', () => {
             setSize(window.innerWidth)
@@ -32,7 +46,7 @@ const Shop = () => {
                 {/* header */}
                 <nav className="navbar mb-3 navbar-expand-lg navbar-light px-5">
                     <NavLink to='./' className="navbar-brand header-left" >Lb Design</NavLink>
-                    <div className=" ml-auto">
+                    <div className="ml-auto shop-links">
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className='navbar-nav'>
                                 <li className="nav-item">
@@ -48,13 +62,19 @@ const Shop = () => {
                                     <NavLink to='/contact' className="nav-link">Contacto</NavLink>
                                 </li>
                             </ul>
+
                         </div>
                     </div>
-                    {/* <div className='header-bar-separator'>|</div>
-                        <div className="">
+                    <div className="shop-cart">
+                        <div className='header-bar-separator'>|</div>
+                        <div className="header-account d-flex align-items-center">
                             <BiSearch className='mx-2 header-search' />
-                            <FiShoppingCart className='header-cart' />
-                        </div> */}
+                            <div className='d-flex align-items-center' style={{ position: 'relative' }}>
+                                <FiShoppingCart className='header-cart' />
+                                <span className='header-cart-items'>{basket.length}</span>
+                            </div>
+                        </div>
+                    </div>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -109,26 +129,29 @@ const Shop = () => {
                             </div>
                         </div>
                     </div>
-                    {checked ? <div className='shop-product p-4'>
-                        {Product.map(item => (
-                            <div className='card bg-transparent'>
-                                <img className='card-img-top' src={item.img} alt='img' />
-                                <div className="card-body ">
-                                    <div className="card-text">
-                                        <p className='mb-0 text-center'>{item.title}</p>
-                                        <div className='d-flex justify-content-around mb-0'>
-                                            <span>${item.price}</span>
-                                            <div className='d-flex shop-rating'>
-                                                <span className='d-flex'> {Array(item.rating_pos).fill().map((_) => <p>&#9733;</p>)}</span>
-                                                <span className='d-flex'> {Array(item.rating_neg).fill().map((_) => <p>&#9734;</p>)}</span>
+                    {checked ?
+                        <div className='shop-product p-4'>
+                            {Product.map(item => (
+                                <div className='card bg-transparent'>
+                                    <img className='card-img-top' src={item.img} alt='img' />
+                                    <div className="card-body ">
+                                        <div className="card-text">
+                                            <p className='mb-0 text-center'>{item.title}</p>
+                                            <div className='d-flex justify-content-around mb-0'>
+                                                <span>${item.price}</span>
+                                                <div className='d-flex shop-rating'>
+                                                    <span className='d-flex'> {Array(item.rating_pos).fill().map((_) => <p>&#9733;</p>)}</span>
+                                                    <span className='d-flex'> {Array(item.rating_neg).fill().map((_) => <p>&#9734;</p>)}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div className="btn-toShop">
+                                        <button className='btn btn-primary' onClick={() => addToBasket(item)}>Comprar</button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-
-                    </div> : null}
+                            ))}
+                        </div> : null}
                 </div>
 
             </div>
